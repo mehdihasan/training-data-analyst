@@ -58,12 +58,27 @@ def create_png(url, outfile):
 
   # Set up Basemap
   mpl.rcParams['figure.figsize'] = '16, 12'
-  m = Basemap(projection='kav7', lon_0=-90, resolution = 'l', area_thresh = 1000.0)
+  # v1, v2, v3
+  # m = Basemap(projection='kav7', lon_0=-90, resolution = 'l', area_thresh = 1000.0)
+  # v4
+  # m = Basemap(projection='kav7', lon_0=0, resolution = 'l', area_thresh = 1000.0)
+  # v5
+  m = Basemap(projection='kav7', lon_0=180, resolution = 'l', area_thresh = 1000.0)
   m.drawcoastlines()
   m.drawcountries()
   m.drawmapboundary(fill_color='0.3')
+  # v1
+  # m.drawparallels(np.arange(-90.,99.,30.))
+  # junk = m.drawmeridians(np.arange(-180.,180.,60.))
+  # v2
+  # m.drawparallels(np.arange(-90.,99.,30.))
+  # junk = m.drawmeridians(np.arange(0.,360.,60.))
+  # v3
+  # m.drawparallels(np.arange(-90.,99.,30.))
+  # junk = m.drawmeridians(np.arange(0.,360.,60.))
+  # v4, v5
   m.drawparallels(np.arange(-90.,99.,30.))
-  junk = m.drawmeridians(np.arange(-180.,180.,60.))
+  junk = m.drawmeridians(np.arange(0.,360.,60.))
 
   # sort earthquakes by magnitude so that weaker earthquakes
   # are plotted after (i.e. on top of) stronger ones
